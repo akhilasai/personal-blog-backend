@@ -21,12 +21,12 @@ const getUserDetailsById = (req, res) => {
             res.status(200).send(JSON.stringify(result));
         }
         else{
-            res.status(204);
+            res.status(204); //No Content
         }
       })
   }
   else{
-    res.status(404)
+    res.status(404) // Not Found
   }
 };
 

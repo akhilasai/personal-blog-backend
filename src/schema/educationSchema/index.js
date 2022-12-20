@@ -12,11 +12,11 @@ const EducationSchema = new mongoose.Schema({
 	branchName: { type: String, required: true },
 	isBranch: { type: String, required: true },
 	passedOutYear: { type: Number },
-	gpa: { type: Float },
+	gpa: { type: Number },
 	image:{type:String }
 });
 //assigning model to const variable
-const Education = mongoose.model("Education", EducationSchema);
+const Education = mongoose.model("education", EducationSchema);
 
 //exporting User
 module.exports = Education;

@@ -1,0 +1,20 @@
+//Importing npm modules
+const mongoose = require('mongoose')
+
+/**
+ * creating a schema of record
+ * declaring required fields and specifying data type
+ */
+
+ const projectSchema = new mongoose.Schema({
+	name: { type: String, required: true },
+	description: { type: String},
+    requiredSkills: { type: String},
+    image:{type:String}
+	
+});
+//assigning model to const variable
+const Project = mongoose.model("project", projectSchema);
+
+//exporting User
+module.exports = Project;
