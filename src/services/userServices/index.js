@@ -1,28 +1,60 @@
+const users = require("../../schema/userSchema");
 
-const users=require('../../schema/userSchema');
-
-const getUserDetails=(req,res)=>{
-    const userDetails=users.find({})
-    console.log(userDetails);
-    res.status(200).send(JSON.stringify(userDetails));
+const getUserDetails = (req, res) => {
+  users.find({}).then((result,error) => {
+    if(!error){
+        res.status(200).send(JSON.stringify(result));
+    }
+    else{
+        res.status(404)
+    }
+});
 }
 
-const getUserDetailsById=()=>{
-}
+const getUserDetailsById = (req, res) => {
+  let params = req.params;
+  console.log(params);
+  if(params.id){
+      users.find({ _id: params.id }).then((result,error) => {
+        //   console.log(error)
+        if(!error){
+            res.status(200).send(JSON.stringify(result));
+        }
+        else{
+            res.status(204);
+        }
+      })
+  }
+  else{
+    res.status(404)
+  }
+};
 
-const postUserDetails=()=>{
+const postUserDetails = (req, res) => {
+  let body = req.body;
+  console.log(body);
+  if (body.userName && body.password) {
+    users.create(body).then((result, error) => {
+      if (!error) {
+        res.status(201).send(JSON.stringify(result));
+      } else {
+        res.status(404);
+      }
+    });
+  }
+  else{
+    res.status(204)
+  }
+};
 
-}
+const deleteUserDetails = () => {};
 
-const deleteUserDetails=()=>{
-}
+const updateUserDetails = () => {};
 
-const updateUserDetails=()=>{
-}
-
-module.exports={getUserDetails,
-    getUserDetailsById,
-    postUserDetails,
-    deleteUserDetails,
-    updateUserDetails
+module.exports = {
+  getUserDetails,
+  getUserDetailsById,
+  postUserDetails,
+  deleteUserDetails,
+  updateUserDetails,
 };
