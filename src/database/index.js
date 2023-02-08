@@ -5,7 +5,8 @@ mongoose.connect("mongodb+srv://athumma:Akhila%40123@cluster0.iiybw.mongodb.net/
 	{
 		useNewUrlParser: true,
 		// useFindAndModify: false,
-		useUnifiedTopology: true
+		useUnifiedTopology: true,
+		// strictQuery:false
 	}
 );
 const con = mongoose.connection
