@@ -48,11 +48,30 @@ const postSkillDetails=(req,res)=>{
 }
 
 const deleteSkillDetails=()=>{
+    
 
 }
 
-const updateSkillDetails=()=>{
-    
+const updateSkillDetails=(req,res)=>{
+    const idValue=req.params.id;
+    console.log(idValue);
+    const body=req.body;
+    console.log(body);
+    let query={id:parseInt(idValue)}
+    console.log(query);
+    let values={$set:body}
+    console.log(values);
+    skills.updateOne(query,values,(err,result)=>{
+        if(err){
+            res.status(403)
+                .send(err)
+        }
+        else{
+            console.log(result);
+            res.status(201)
+                .send(result.modifiedCount+" skill updated");
+        }
+    });
 }
 
 module.exports={
