@@ -6,14 +6,14 @@ const mongoose = require('mongoose')
  * declaring required fields and specifying data type
  */
 
- const skillSchema = new mongoose.Schema({
+ const interestSchema = new mongoose.Schema({
 	name: { type: String, required: true },
-	percentage: { type: Number},
-    color: { type: String}
+	category: { type: String},
+    image:{type:String}
 	
 });
 //assigning model to const variable
-const Skill = mongoose.model("skill", skillSchema);
+const Interest = mongoose.model("interest", interestSchema);
 
 //exporting User
-module.exports = Skill;
+module.exports = Interest;

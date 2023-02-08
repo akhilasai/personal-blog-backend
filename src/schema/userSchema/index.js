@@ -2,7 +2,7 @@
 const mongoose = require('mongoose')
 
 /**
- * creating a scheema of record
+ * creating a schema of record
  * declaring required fields and specifying data type
  */
 
