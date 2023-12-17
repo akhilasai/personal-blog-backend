@@ -1,17 +1,18 @@
 //Importing npm modules
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
 /**
  * creating a schema of record
  * declaring required fields and specifying data type
  */
 
- const projectSchema = new mongoose.Schema({
-	name: { type: String, required: true },
-	description: { type: String},
-    requiredSkills: { type: String},
-    image:{type:String}
-	
+const projectSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  description: { type: String, required: true },
+  tags: { type: Array },
+  image: { type: String },
+  link: { type: String },
+  code: { type: String }
 });
 //assigning model to const variable
 const Project = mongoose.model("project", projectSchema);
