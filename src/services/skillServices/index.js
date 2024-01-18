@@ -28,6 +28,23 @@ const getSkillDetailsById=(req,res)=>{
         res.status(404)
     }
 }
+const getSkillDetailsByUser=(req,res)=>{
+    let params=req.params;
+    console.log(params);
+    if(params.userId){
+        skills.find({userId:params.userId}).then((result,error)=>{
+            if(!error){
+                res.status(200).send(JSON.stringify(result));
+            }
+            else{
+                res.status(404)
+            }
+        })
+    }
+    else{
+        res.status(404)
+    }
+}
 
 const postSkillDetails=(req,res)=>{
     let body=req.body;
@@ -79,5 +96,6 @@ module.exports={
     getSkillDetailsById,
     postSkillDetails,
     deleteSkillDetails,
-    updateSkillDetails
+    updateSkillDetails,
+    getSkillDetailsByUser
 }

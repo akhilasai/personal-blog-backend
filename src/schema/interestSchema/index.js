@@ -9,7 +9,8 @@ const mongoose = require('mongoose')
  const interestSchema = new mongoose.Schema({
 	name: { type: String, required: true },
 	category: { type: String},
-    image:{type:String}
+    image:{type:String},
+	userId:{type:String,required:true}
 	
 });
 //assigning model to const variable

@@ -28,6 +28,23 @@ const getEducationDetailsById=(req,res)=>{
         res.status(404)
     }
 }
+const getEducationDetailsByUser=(req,res)=>{
+    let params=req.params;
+    console.log(params)
+    if(params.userId){
+        education.find({userId:params.userId}).then((result,error)=>{
+            if(!error){
+                res.status(200).send(JSON.stringify(result))
+            }
+            else{
+                res.status(204)
+            }
+        })
+    }
+    else{
+        res.status(404)
+    }
+}
 
 const postEducationDetails=(req,res)=>{
     let body=req.body
@@ -60,5 +77,6 @@ module.exports={
     getEducationDetailsById,
     postEducationDetails,
     deleteEducationDetails,
-    updateEducationDetails
+    updateEducationDetails,
+    getEducationDetailsByUser
 }

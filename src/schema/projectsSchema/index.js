@@ -12,7 +12,8 @@ const projectSchema = new mongoose.Schema({
   tags: { type: Array },
   image: { type: String },
   link: { type: String },
-  code: { type: String }
+  code: { type: String },
+  userId:{type:String,required:true}
 });
 //assigning model to const variable
 const Project = mongoose.model("project", projectSchema);

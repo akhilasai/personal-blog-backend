@@ -9,7 +9,8 @@ const mongoose = require('mongoose')
  const skillSchema = new mongoose.Schema({
 	name: { type: String, required: true },
 	percentage: { type: Number},
-    color: { type: String}
+    color: { type: String},
+	userId:{type:String,required:true}
 	
 });
 //assigning model to const variable

@@ -13,7 +13,8 @@ const EducationSchema = new mongoose.Schema({
 	isBranch: { type: String, required: true },
 	passedOutYear: { type: Number },
 	gpa: { type: Number },
-	image:{type:String }
+	image:{type:String },
+	userId:{type:String,required:true}
 });
 //assigning model to const variable
 const Education = mongoose.model("education", EducationSchema);

@@ -28,6 +28,23 @@ const getInterestDetailsById=(req,res)=>{
         res.status(404) // Not Found
     }
 }
+const getInterestDetailsByUser=(req,res)=>{
+    let params=req.params;
+    console.log(params);
+    if(params.userId){
+        interests.find({userId:params.userId}).then((result,error)=>{
+            if(!error){
+                res.status(200).send(JSON.stringify(result))
+            }
+            else{
+                res.status(204) //No Content
+            }
+        }) 
+    }
+    else{
+        res.status(404) // Not Found
+    }
+}
 
 const postInterestDetails=(req,res)=>{
     let body=req.body;
@@ -60,5 +77,6 @@ module.exports={
     getInterestDetailsById,
     postInterestDetails,
     deleteInterestDetails,
-    updateInterestDetails
+    updateInterestDetails,
+    getInterestDetailsByUser
 }
