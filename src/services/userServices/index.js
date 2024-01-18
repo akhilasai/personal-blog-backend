@@ -30,6 +30,25 @@ const getUserDetailsById = (req, res) => {
   }
 };
 
+const getUserDetailsByUserName = (req, res) => {
+  let params = req.params;
+  console.log(params);
+  if(params.userName){
+      users.find({ userName: params.userName}).then((result,error) => {
+          console.log(result,error)
+        if(!error){
+            res.status(200).send(JSON.stringify(result));
+        }
+        else{
+            res.status(204); //No Content
+        }
+      }).catch((err)=>res.status(500))
+  }
+  else{
+    res.status(404) // Not Found
+  }
+};
+
 const postUserDetails = (req, res) => {
   let body = req.body;
   console.log(body);
@@ -57,4 +76,5 @@ module.exports = {
   postUserDetails,
   deleteUserDetails,
   updateUserDetails,
+  getUserDetailsByUserName
 };
