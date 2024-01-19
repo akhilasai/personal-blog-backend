@@ -14,7 +14,11 @@ const userSchema = new mongoose.Schema({
   email: { type: String, required: true },
   description: { type: String, required: true },
   resumeLink: { type: String, required: true },
-  imageUrl: { type:String, required: true}
+  imageUrl: { type:String, required: true},
+  githubUrl: { type:String},
+  instaUrl: { type:String},
+  fbUrl: { type:String},
+  linkedinUrl: { type:String},
 });
 //assigning model to const variable
 const User = mongoose.model("user", userSchema);

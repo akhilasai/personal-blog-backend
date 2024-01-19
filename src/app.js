@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json())
 
 //Assigning port number to port varaible
-const port = 8080;
+const port = process.env.PORT || 8080;
 //Database connection
 require('../src/database') 
 
